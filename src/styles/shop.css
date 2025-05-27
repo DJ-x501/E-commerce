@@ -1,0 +1,34 @@
+.shopSectionHead{
+    background-image: url('../assets/shopBanner.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* width: 100%; */
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 20px;
+    border-radius: 20px;
+}
+.shopHead{
+    font-size: 52px;
+    font-weight: 100;
+    color: black;
+}
+.shopSubHead{
+    font-size: 26px;
+    font-weight: 600;
+    color: black;
+    font-style: oblique;
+}
+.products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    height: auto;
+    flex-wrap: wrap;
+}
