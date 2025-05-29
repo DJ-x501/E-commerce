@@ -11,7 +11,10 @@
     flex-direction: column;
     gap: 10px;
     margin: 10px 20px;
+    margin-bottom: 0px;
     border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 .shopHead{
     font-size: 52px;
@@ -31,4 +34,14 @@
     padding-top: 50px;
     height: auto;
     flex-wrap: wrap;
+}
+.marquee2{
+    padding: 5px 30px;
+    border-radius: 20px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    background-color: black;
+    color: silver;
+    margin: 00px 20px;
+    font-weight: 700;
 }

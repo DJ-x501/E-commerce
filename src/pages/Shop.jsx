@@ -74,7 +74,10 @@ const Shop = () => {
         <div className="shopSubHead">State the biggest use case of your product. 
           Briefly expand on how this will help your customers.</div>
       </div>
-      
+
+        <div className="marquee2">
+          <marquee>Order 699rs and get a extra 5% discount.</marquee>
+        </div>
           <div className="products">
         {products.map((item,index)=>{
           return(

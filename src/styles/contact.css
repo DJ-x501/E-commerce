@@ -6,7 +6,9 @@
   justify-content: center;
   align-items: center;
   font-family: 'Segoe UI', sans-serif;
-  padding: 40px 20px;
+  /* padding: 40px 20px; */
+  flex-direction: column;
+  gap: 30px;
 }
 
 /* Form */
@@ -61,4 +63,42 @@
   cursor: pointer;
   transition: 0.3s ease;
 }
-
+.contactPage{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-image: url('../assets/contactBackground.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 80px;
+  
+}
+.icons{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.mobile,.contact,.map{
+  display: flex;
+  gap: 5px;
+}
+.contactText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icons img{
+  width: 50px;
+  height: 50px;
+}
+.right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -80,6 +80,8 @@
 .productSubHead{
     font-size: 22px;
     font-weight: 700;
+    display: flex;
+    gap: 80px;
 }
 .price{
     font-weight: 800;
@@ -123,4 +125,42 @@
 }
 .sectionHead{
     font-size: 44px;
+}
+.section3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 30px;
+    gap: 40px;
+    flex-direction: column;
+}
+.card{
+    width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
+    background-color: rgb(239, 199, 124);
+    border-radius: 20px;
+    gap: 10px;
+    box-shadow: 5px 5px 15px gray;
+    margin-bottom: 20px;
+}
+.reviewSection{
+    display: flex;
+    gap: 140px;
+}
+.reviewHead{
+    color: red;
+    font-weight: 700;
+}
+.review{
+    font-style: italic;
+}
+.reviewHeading{
+    font-size: 44px;
+    color: gray;
+    font-weight: 700;
 }
