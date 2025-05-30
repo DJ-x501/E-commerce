@@ -3,14 +3,28 @@ import '../styles/cart.css';
 import { useSelector } from 'react-redux';
 
 const Cart = () => {
-  const userCart = userSelector((state)=>state.cart.items)
+  const userCart = useSelector((state)=>state.cart.items)
+  console.log("userCart ==> ", userCart);
   return (
     <div>
       <div className="cartHead">
         User Cart
       </div>
+      <div className="cartDiv">
       <div className="cartContainer">
-         div.
+         <div className="img">
+          <img src={`http://localhost:8000${userCart[0].image}`} alt='' />
+
+         </div>
+         <div className="textContainer">
+          <div className="cartHead">
+            {userCart[0].name}
+          </div>
+          <div className="cardDescription">{userCart[0].description}</div>
+          <div className="cartPrice">{userCart[0].price}</div>
+         </div>
+      </div>
+
       </div>
     </div>
   )

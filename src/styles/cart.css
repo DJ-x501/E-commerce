@@ -4,3 +4,16 @@
     color: rgb(25, 24, 24);
     padding: 20px;
 }
+.cartDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cartContainer{
+    display: flex;
+    border: 2px solid black;
+}
+.img img{
+    width: 200px;
+    height: 200px;
+}

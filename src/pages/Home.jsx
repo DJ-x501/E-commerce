@@ -1,34 +1,17 @@
 import React from 'react';
 import '../styles/home.css';
 import { useNavigate } from 'react-router-dom';
-//images
-import shampoo from '../assets/shampoo.png';
-import soap from '../assets/soap.png';
-import oil from '../assets/oil.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../redux/slice/cartSlice';
+import { useEffect,useState } from 'react';
+import axios from 'axios';
 
-const products = [
-  {
-    name: "Goose Shampoo",
-    price: "199 Rs",
-    description: "Gentle. Nourishing. Pure.",
-    image: shampoo
-  },
-  {
-    name: "Goose Soap Bar",
-    price: "99 Rs",
-    description: "Handcrafted Comfort in Every Wash.",
-    image: soap
-  },
-  {
-    name: "Goose oil",
-    price: "169 Rs",
-    description: "Versatile Hydration, Naturally Bottled.",
-    image: oil
-  }
 
-];
+
+
+
+
+
 const reviews = [
   {
     name: "Dhananjay",
@@ -49,12 +32,24 @@ const Home = () => {
   console.log("cartItems ==> ", cartItems);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [products,setProducts]= useState([]);
+
+  async function productApi() {
+  const res = await axios.get("http://localhost:8000/products");
+  const data = await res.data;
+  console.log(data);
+  setProducts(data);
+}
+
+  useEffect(() => {
+  productApi();
+}, []);
 
   const handleCart = async (product) => {
     console.log("product ==> ", product);
     await dispatch(addToCart(product));
   };
-
+  
   return (
     <div>
       <div className="background">
@@ -80,11 +75,12 @@ const Home = () => {
         </div>
         <button className='pBtn' onClick={() => { navigate("shop") }}>View All</button>
         <div className="products">
-          {products.map((item, index) => {
+          {products.slice(0,3).map((item, index) => {
             return (
 
               <div className="productBox" key={index}>
-                <img src={item.image} alt={item.name} />
+                <img src={`http://localhost:8000${item.image}`} alt={item.name} />
+
                 <div className="pHead" >{item.name}</div>
                 <div className="pSubHead">{item.description}</div>
                 <div className="price">{item.price}</div>
