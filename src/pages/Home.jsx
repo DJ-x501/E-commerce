@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/home.css';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
+import { fetchProduct } from '../redux/slice/cartSlice';
 import { addToCart } from '../redux/slice/cartSlice';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
@@ -28,11 +29,11 @@ const reviews = [
 ];
 
 const Home = () => {
-  const cartItems = useSelector((state) => state.cart.items);
-  console.log("cartItems ==> ", cartItems);
-  const dispatch = useDispatch();
+;
   const navigate = useNavigate();
   const [products,setProducts]= useState([]);
+  const dispatch = useDispatch();
+  const state = useSelector((state)=>state )
 
   async function productApi() {
   const res = await axios.get("http://localhost:8000/products");

@@ -1,10 +1,9 @@
 import React from 'react';
 import '../styles/cart.css';
-import { useSelector } from 'react-redux';
+
 
 const Cart = () => {
-  const userCart = useSelector((state)=>state.cart.items)
-  console.log("userCart ==> ", userCart);
+  
   return (
     <div>
       <div className="cartHead">
