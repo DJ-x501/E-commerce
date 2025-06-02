@@ -2,8 +2,6 @@ import React from 'react';
 import '../styles/home.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux';
-import { fetchProduct } from '../redux/slice/cartSlice';
-import { addToCart } from '../redux/slice/cartSlice';
 import { useEffect,useState } from 'react';
 import axios from 'axios';
 
@@ -31,25 +29,11 @@ const reviews = [
 const Home = () => {
 ;
   const navigate = useNavigate();
-  const [products,setProducts]= useState([]);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch(fetchProduct);
+
+  
   const state = useSelector((state)=>state )
-
-  async function productApi() {
-  const res = await axios.get("http://localhost:8000/products");
-  const data = await res.data;
-  console.log(data);
-  setProducts(data);
-}
-
-  useEffect(() => {
-  productApi();
-}, []);
-
-  const handleCart = async (product) => {
-    console.log("product ==> ", product);
-    await dispatch(addToCart(product));
-  };
+  console.log("state ==> ", state);
   
   return (
     <div>
@@ -75,7 +59,7 @@ const Home = () => {
 
         </div>
         <button className='pBtn' onClick={() => { navigate("shop") }}>View All</button>
-        <div className="products">
+        {/* <div className="products">
           {products.slice(0,3).map((item, index) => {
             return (
 
@@ -90,7 +74,7 @@ const Home = () => {
             )
           })}
 
-        </div>
+        </div> */}
 
       </div>
       <div className="section2">

@@ -1,54 +1,43 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "../../api/axios";
-
-export const register = createAsyncThunk(
-  "user/registerUser",
-  async (data, thunkAPI) => {
-    try {
-      const res = await axios.post("/registerUser",data);
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response?.data || "Fetch failed");
-    }
-  }
-);
-export const getProfile = createAsyncThunk(
-  "user/getProfile",
-  async (data, thunkAPI) => {
-    try {
-      const res = await axios.post("/getProfile",data);
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response?.data || "Fetch failed");
-    }
-  }
-);
+//Importing require files
+import {createSlice,createAsyncThunk} from "@reduxjs/toolkit";
+import axios from "axios";
 
 
-const userSlice = createSlice({
-  name: "user",
-  initialState: {
-    user: {},
-    loading: false,
-    error: null,
-  },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-    .addCase(getProfile.pending,(state)=>{
-        state.loading = true;
-        state.error = null;
-    })
-    .addCase(getProfile.fulfilled,(state,action)=>{
-        state.loading = false;
-        state.user = action.payload;
-    })
-    .addCase(getProfile.rejected,(state,action)=>{
-        state.loading = false;
-        state.error = action.payload;
-    })
-  },
+//Api calling
+
+export const createUser  =  createAsyncThunk("createUser",async function(loginData){
+  const response = await axios.post("http://localhost:4000/user/userLogin",loginData);
+  return response.data
+
 });
 
+const userSlice = createSlice({
+  name:"user",
+  initialState:{
+    isLoading:false,
+    data:null,
+    isError:false
+  },
+  extraReducers:function(builder){
+    builder
+        .addCase(createUser.fulfilled, (state,action)=>{
+          state.isloading = false;
+          state.data = action.payload;
+          console.log("data ==> ", state.data);
+          localStorage.setItem("token",JSON.stringify(action.payload.auth_token));
+          
+        });
+        builder
+        .addCase(createUser.pending, (state,action)=>{
+          state.loading = true;
+          state.data = null;
+        });
+        builder
+        .addCase(createUser.rejected , (state,action)=>{
+          console.log("error",action.payload);
+          state.isError = true;
+        })
+  }
+});
 
-export default userSlice;
+export default userSlice.reducer;
