@@ -10,7 +10,7 @@ const Header = () => {
     <div>
       <div className="sale"><marquee>Get 20% off on your first order!!</marquee></div>
       <div className="navbar">
-        <div className="title">GOOSE</div>
+        <div className="title" onClick={()=>navigate("/")}>GOOSE</div>
         <div className="links">
           <button  className='btn' onClick={()=>navigate("/")}>Home</button>
           <button  className='btn' onClick={()=>navigate("shop")}>Shop</button>

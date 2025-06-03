@@ -42,7 +42,7 @@ return(
   
      <div className="login-container">
       <form className="login-form" onSubmit={handleLogin}>
-        <h2>Login</h2>
+        <h2>WELCOME</h2>
         <label>Email</label>
         <input
           type="email"
@@ -61,7 +61,7 @@ return(
           required
           placeholder="Enter your password"
         />
-        <button type="submit">Login</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   

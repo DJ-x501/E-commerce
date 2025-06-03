@@ -12,7 +12,7 @@
     height: 70px;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(239, 199, 124);
+    background-color:whitesmoke;
     padding: 0px 15px;
 }
 .user img{
@@ -23,13 +23,14 @@
     font-size: 18px;
     border: none;
     margin: 0px 10px;
-    background-color: rgb(239, 199, 124);
+    background-color: whitesmoke;
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
+    transition: text-shadow 0.3s ease-in-out;
 }
 .btn:hover{
-  transform: translateY(-5px);
+  text-shadow: 0 0 5px #fff, 0 0 10px #d4f52f, 0 0 20px #b1d427, 0 0 40px #d8df23;
 }
 .btn:active{
   transform: translateY(2px);
@@ -38,10 +39,11 @@
     font-size: 24px;
     font-weight: 700;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
 }
 .footer {
-  background-color: rgb(239, 199, 124);
-  color: black;
+  background-color: black;
+  color: white;
   text-align: center;
   padding: 25px 15px;
   font-family: Arial, sans-serif;
@@ -50,7 +52,7 @@
 .footer-slogan {
   font-style: italic;
   margin-bottom: 15px;
-  color: black;
+  color: white;
 }
 
 .footer-links,
@@ -60,7 +62,7 @@
 
 .footer-links a,
 .footer-socials a {
-  color: black;
+  color: white;
   text-decoration: none;
   margin: 0 10px;
   font-weight: bold;
@@ -70,11 +72,11 @@
 
 .footer-links a:hover,
 .footer-socials a:hover {
-  color: black;
+  color: white;
 }
 
 .footer-copy {
   font-size: 13px;
-  color: black;
+  color: white;
   margin-top: 10px;
 }

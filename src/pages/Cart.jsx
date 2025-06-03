@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/cart.css';
+import { useDispatch,useSelector } from 'react-redux';
+
 
 
 const Cart = () => {

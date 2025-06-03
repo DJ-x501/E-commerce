@@ -2,7 +2,7 @@ import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchProduct = createAsyncThunk('fetchProduct',async function(){
-  const response = await axios.get("http://localhost:4000/products");
+  const response = await axios.get("http://localhost:4000/user/products");
   return response.data;
 })
 const cartSlice = createSlice({
@@ -21,7 +21,7 @@ const cartSlice = createSlice({
     });
     builder
     .addCase(fetchProduct.pending, (state,action)=>{
-      state.loading = true;
+      state.isloading = true;
       state.data = null;
     });
     builder

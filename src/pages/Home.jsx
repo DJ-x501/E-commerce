@@ -3,12 +3,7 @@ import '../styles/home.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux';
 import { useEffect,useState } from 'react';
-import axios from 'axios';
-
-
-
-
-
+import { fetchProduct } from '../redux/slice/cartSlice';
 
 
 const reviews = [
@@ -27,13 +22,14 @@ const reviews = [
 ];
 
 const Home = () => {
-;
+//all the hooks used.
   const navigate = useNavigate();
-  // const dispatch = useDispatch(fetchProduct);
-
-  
-  const state = useSelector((state)=>state )
-  console.log("state ==> ", state);
+  const dispatch = useDispatch();
+  useEffect(() => {
+  dispatch(fetchProduct());
+  }, [])
+  const products = useSelector((state)=>state.cart.data)
+  console.log("products ==> ", products);
   
   return (
     <div>
@@ -59,12 +55,12 @@ const Home = () => {
 
         </div>
         <button className='pBtn' onClick={() => { navigate("shop") }}>View All</button>
-        {/* <div className="products">
-          {products.slice(0,3).map((item, index) => {
+         <div className="products">
+          {products&&products.data?.slice(0,3).map((item, index) => {
             return (
 
               <div className="productBox" key={index}>
-                <img src={`http://localhost:8000${item.image}`} alt={item.name} />
+                <img src={`http://localhost:4000${item.image}`} alt={item.name} />
 
                 <div className="pHead" >{item.name}</div>
                 <div className="pSubHead">{item.description}</div>
@@ -74,7 +70,7 @@ const Home = () => {
             )
           })}
 
-        </div> */}
+        </div>
 
       </div>
       <div className="section2">
@@ -101,4 +97,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;
