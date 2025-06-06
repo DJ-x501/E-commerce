@@ -1,34 +1,34 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import '../styles/cart.css';
-import { useDispatch,useSelector } from 'react-redux';
-
-
 
 const Cart = () => {
-  
+  const cart = useSelector((state) => state.cart);
+  console.log("cart ==> ", cart);
+  const { items, total } = cart;
+
   return (
-    <div>
-      <div className="cartHead">
-        User Cart
-      </div>
-      <div className="cartDiv">
-      <div className="cartContainer">
-         <div className="img">
-          <img src={`http://localhost:8000${userCart[0].image}`} alt='' />
-
-         </div>
-         <div className="textContainer">
-          <div className="cartHead">
-            {userCart[0].name}
+    <div className="wrapper">
+      {/* Cart Items */}
+      {items.length===1?items.map((item, index) => (
+        <div className="cart-item" key={index}>
+          <img src={item.image} alt={item.name} className="cart-item-img" />
+          <div className="cart-item-details">
+            <h3>{item.name}</h3>
+            <p>{item.description}</p>
           </div>
-          <div className="cardDescription">{userCart[0].description}</div>
-          <div className="cartPrice">{userCart[0].price}</div>
-         </div>
-      </div>
+          <div className="cart-item-price">₹ {item.price}</div>
+        </div>
+      )):<div className='emptyCart'>Your cart is empty</div>}
 
+      {/* Cart Summary */}
+      <div className="cart-summary-card">
+        <h2>Total Amount</h2>
+        <div className="total-price">₹ {total}</div>
+        
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;
