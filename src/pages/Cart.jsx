@@ -10,7 +10,7 @@ const Cart = () => {
   return (
     <div className="wrapper">
       {/* Cart Items */}
-      {items.length===1?items.map((item, index) => (
+      {items.length>=0?items.map((item, index) => (
         <div className="cart-item" key={index}>
           <img src={item.image} alt={item.name} className="cart-item-img" />
           <div className="cart-item-details">

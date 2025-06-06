@@ -13,7 +13,6 @@ createRoot(document.getElementById('root')).render(
     position='top-right'
     autoClose={3000}
     />
-    
     <Provider store={store}>
       <App />
     </Provider>
