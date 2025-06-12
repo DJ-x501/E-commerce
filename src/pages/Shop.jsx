@@ -4,10 +4,12 @@ import shampoo from '../assets/shampoo.png';
 import soap from '../assets/soap.png';
 import oil from '../assets/oil.png';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch,useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const Shop = () => {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   //products array..
  const products = [
      {
@@ -66,7 +68,10 @@ const Shop = () => {
      }
      
    ]
-
+ function CartButton(item){
+    dispatch(addToCart(item));
+    toast.success("Item Added to Cart");
+  }
   return (
     <div>
       <div className="shopSectionHead">
@@ -86,7 +91,7 @@ const Shop = () => {
                 <div className="pHead" >{item.name}</div>
                 <div className="pSubHead">{item.description}</div>
                 <div className="price">{item.price}</div>
-                <button className='pBtn' onClick={()=>navigate("/cart")}>ADD TO CART</button>
+                <button className='pBtn' onClick={()=>CartButton(item)}>ADD TO CART</button>
               </div>
           )
         })}
